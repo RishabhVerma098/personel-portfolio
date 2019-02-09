@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -43,7 +44,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Rishabh</a>
+        <a class="navbar-brand" href="{% url 'home'%}">Rishabh</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -57,9 +58,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="#">Twitter</a>
-            <a class="nav-item nav-link" href="#">Resume</a>
-            <a class="nav-item nav-link" href="#">Blog</a>
+            <a class="nav-item nav-link" href="https://twitter.com/rishabh18035497">Twitter</a>
+            <a
+              class="nav-item nav-link"
+              href="{% static "resume.pdf" %}"
+              >Resume</a
+            >
+            <a class="nav-item nav-link" href="{%url 'allblogs'%}">Blog</a>
           </div>
         </div>
       </nav>
@@ -71,7 +76,7 @@
         style="background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;"
       >
         <div class="container">
-          <h1 class="jumbotron-heading">Hi, I'm Rishabh verma</h1>
+          <h1 class="jumbotron-heading"><img class="img-fluid rounded-circle mr-2" src="{% static "fg.png" %}" alt="Chania" style="height:100px; width: 100px">Hi, I'm Rishabh verma</h1>
           <p class="lead text-muted">
             Something short and leading about the collection below—its contents,
             the creator, etc. Make it short and sweet, but not too short so

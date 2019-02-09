@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -41,29 +42,33 @@
     </style>
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Rishabh</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="#">Twitter</a>
-            <a class="nav-item nav-link" href="#">Resume</a>
-            <a class="nav-item nav-link active " href="#">Blog</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+      <header>
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="{% url 'home'%}">Rishabh</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="https://twitter.com/rishabh18035497">Twitter</a>
+                <a
+                  class="nav-item nav-link"
+                  href="{% static "resume.pdf" %}"
+                  >Resume</a
+                >
+                <a class="nav-item nav-link active" href="{%url 'allblogs'%}">Blog</a>
+              </div>
+            </div>
+          </nav>
+        </header>
 
     <main role="main">
       <div class="container">
@@ -90,7 +95,7 @@
                 /></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{ blog.title }}</a>
+                    <a href="{% url 'details' blog.id %}">{{ blog.title }}</a>
                   </h4>
                   <p class="text-muted">{{ blog.pub_date }}</p>
                   <p class="card-text">
